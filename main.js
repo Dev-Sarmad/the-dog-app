@@ -1,19 +1,42 @@
 const api = import.meta.env.VITE_API_KEY;
-
-const fetchDetails = async() => {
+const detailsContainer = document.getElementById('details-container');  
+const global = {
+  baseUrl: "https://api.thedogapi.com/v1/",
+};
+const fetchDetails = async () => {
   console.log("in details");
   const breed_id = window.location.search.split("=")[1];
-const response = await fetch(`https://api.thedogapi.com/v1/breeds/${breed_id}?api_key=${api}`);
-const  data =  await response.json();
-console.log(data);
-};
-
-const fetchData = async () => {
+  showSpinner();
   const response = await fetch(
-    `https://api.thedogapi.com/v1/images/search?api_key=${api}&limit=10&has_breeds=true`
+    `${global.baseUrl}images/search?breed_ids=${breed_id}&api_key=${api}`
   );
   const data = await response.json();
-console.log(data)
+  hideSpinner();
+  console.log(data);
+  const div = document.createElement('div');
+  div.innerHTML = `
+  <img src=${data.refrence_image_id} alt="">
+<h1>${data.name}</h1>
+<h1>${data.bred_for}</h1>
+  `
+  document.body.appendChild(div);
+};
+//
+function showSpinner() {
+  document.querySelector(".spinner").classList.add("lds-facebook");
+}
+function hideSpinner() {
+  document.querySelector(".spinner").classList.remove("lds-facebook");
+}
+
+const fetchData = async () => {
+  showSpinner();
+  const response = await fetch(
+    `${global.baseUrl}images/search?api_key=${api}&limit=10&has_breeds=true`
+  );
+  const data = await response.json();
+  hideSpinner();
+  console.log(data);
   data.forEach((data) => {
     const div = document.createElement("div");
     div.innerHTML = `<div
