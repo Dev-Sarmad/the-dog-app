@@ -1,5 +1,4 @@
 const api = import.meta.env.VITE_API_KEY;
-const detailsContainer = document.getElementById('details-container');  
 const global = {
   baseUrl: "https://api.thedogapi.com/v1/",
 };
@@ -13,13 +12,58 @@ const fetchDetails = async () => {
   const data = await response.json();
   hideSpinner();
   console.log(data);
-  const div = document.createElement('div');
+  data.forEach((dog)=>{
+    const div = document.createElement('div');
   div.innerHTML = `
-  <img src=${data.refrence_image_id} alt="">
-<h1>${data.name}</h1>
-<h1>${data.bred_for}</h1>
+  <div
+        class="relative flex w-full max-w-[26rem] flex-col rounded-xl bg-white bg-clip-border text-gray-700 shadow-lg"
+      >
+        <div
+          class="relative mx-4 mt-4 overflow-hidden text-white shadow-lg rounded-xl bg-blue-gray-500 bg-clip-border shadow-blue-gray-500/40"
+        >
+          <img src="${dog.url}" alt="ui/ux review check" />
+        </div>
+        <div class="p-6">
+          <div class="flex items-center justify-between mb-3">
+            <h5
+              class="block font-sans text-xl antialiased font-medium leading-snug tracking-normal text-blue-gray-900"
+            >
+              ${dog.breeds.map((name) => name.name)}
+            </h5>
+          </div>
+          <p
+            class="block font-sans text-base antialiased font-light leading-relaxed text-gray-700"
+          >
+            Temperament :${dog.breeds.map((temperament) => temperament.temperament)}
+          </p>
+          <div class="inline-flex flex-wrap items-center gap-3 mt-8 group">
+            <span
+              class="cursor-pointer rounded-full border border-gray-900/5 bg-gray-900/5 p-3 text-gray-900 transition-colors hover:border-gray-900/10 hover:bg-gray-900/10 hover:!opacity-100 group-hover:opacity-70"
+            >
+              Life-Span ${dog.breeds.map((life) => life.life_span)}
+            </span>
+            <span
+              class="cursor-pointer rounded-full border border-gray-900/5 bg-gray-900/5 p-3 text-gray-900 transition-colors hover:border-gray-900/10 hover:bg-gray-900/10 hover:!opacity-100 group-hover:opacity-70"
+            >
+             Weight: ${dog.breeds.map((weight) => weight.weight.imperial , )}
+             : ${dog.breeds.map((weight) => weight.weight.metric , )}
+            </span>
+            <span
+              class="cursor-pointer rounded-full border border-gray-900/5 bg-gray-900/5 p-3 text-gray-900 transition-colors hover:border-gray-900/10 hover:bg-gray-900/10 hover:!opacity-100 group-hover:opacity-70"
+            >
+             Height: ${dog.breeds.map((height) => height.height.imperial , )}
+             : ${dog.breeds.map((height) => height.height.metric , )}
+            </span>
+            <span
+              class="cursor-pointer rounded-full border border-gray-900/5 bg-gray-900/5 p-3 text-gray-900 transition-colors hover:border-gray-900/10 hover:bg-gray-900/10 hover:!opacity-100 group-hover:opacity-70"
+              >Breed- Group ${dog.breeds.map((breedgrp) => breedgrp.breed_group)}
+            </span>
+          </div>
+        </div>
+      </div>
   `
-  document.body.appendChild(div);
+  document.querySelector("#details-container").appendChild(div);
+  })
 };
 //
 function showSpinner() {
