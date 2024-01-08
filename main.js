@@ -1,9 +1,9 @@
+const input  = document.getElementById('input');
 const api = import.meta.env.VITE_API_KEY;
 const global = {
   baseUrl: "https://api.thedogapi.com/v1/",
 };
 const fetchDetails = async () => {
-  console.log("in details");
   const breed_id = window.location.search.split("=")[1];
   showSpinner();
   const response = await fetch(
@@ -11,7 +11,6 @@ const fetchDetails = async () => {
   );
   const data = await response.json();
   hideSpinner();
-  console.log(data);
   data.forEach((dog)=>{
     const div = document.createElement('div');
   div.innerHTML = `
@@ -80,7 +79,7 @@ const fetchData = async () => {
   );
   const data = await response.json();
   hideSpinner();
-  console.log(data);
+
   data.forEach((data) => {
     const div = document.createElement("div");
     div.innerHTML = `<div
@@ -102,7 +101,16 @@ const fetchData = async () => {
     document.querySelector("#card-container").appendChild(div);
   });
 };
+const filterSearch = async(e)=>{
+const value = e.target.value.toLowerCase();
+const response = await fetch(
+  `${global.baseUrl}breeds/search?q=${value}&attach_image=1&api_key=${api}`
+);
+const data = await response.json();
+console.log(data);
 
+}
+input.addEventListener("keydown", filterSearch)
 switch (window.location.pathname) {
   case "/":
     fetchData();
