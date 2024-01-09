@@ -83,27 +83,6 @@ const fetchData = async () => {
   );
   const data = await response.json();
   hideSpinner();
-
-  // data.forEach((data) => {
-  //   const div = document.createElement("div");
-  //   div.innerHTML = `<div
-  //   class="h-[300px] mx-3 max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700"
-  // >
-  //   <a href="index-details.html?id=${data.breeds.map((dog) => dog.id)}">
-  //     <img class="rounded-t-lg h-[80%]" src=${data.url} alt="" md:h-72 md:w-80/>
-  //   </a>
-  //   <div class="p-5">
-
-  //       <h5
-  //         class="mb-2 font-bold tracking-tight text-gray-900 dark:text-white"
-  //       >
-  //        ${data.breeds.map((name) => name.name)}
-  //       </h5>
-
-  //   </div>
-  // </div>`;
-  //   document.querySelector("#card-container").appendChild(div);
-  // });
   diplayResults(data);
 };
 const diplayResults = (data) => {
@@ -161,6 +140,8 @@ const filterSearch = async (e) => {
         document.querySelector("#filtered-results-container").appendChild(div);
       });
     }
+  } else {
+    fetchData();
   }
 };
 
