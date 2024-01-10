@@ -8,7 +8,47 @@
     <link rel="stylesheet" href="style.css" />
     <title>Dog app</title>
   </head>
-  <body>
+  <body class="dark:bg-gray-900">
+    <section>
+      <nav class="flex items-center justify-around p-3">
+        <img src="./icons/logo-dog.png" alt="" class="w-14" />
+
+        <ul class="space-x-3 text-white">
+          <a
+            href="https://github.com/Dev-Sarmad"
+            target="_blank"
+            class="font-bold text-white"
+            >Github</a
+          >
+          <a
+            href="linkedin.com/in/sarmad-habib/"
+            target="_blank"
+            class="font-bold "
+            >Linkedin</a
+          >
+          <a href="mailto:sarmaddevelops@gmail.com" class="font-bold ">Contact Gmail</a>
+
+        </ul>
+      </nav>
+    </section>
+    <section class="max-w-7xl mx-auto">
+      <div
+        class="bg-[url('./icons/pexels-johann-1254140.jpg')] md:w-full w-[400px] mx-auto h-[300px] md:h-[500px] bg-no-repeat bg-cover bg-center"
+      >
+        <h3 class="text-white text-5xl md:text-6xl font-bold mb-4 p-3 md:text-center ">
+          Discover the World of Dogs
+        </h3>
+        <p class="text-white px-3 md:text-center text-left md:pt-10 ">
+        Welcome to Dog World, where the wonders of canine companionship unfold.
+        <br>
+          Explore a vast collection of information about different breeds, and
+          their furry friends.
+        </p>
+        <span class="bg-red-500 text-white rounded-md px-3 ml-4 text-xl md:mt-10 md:flex md:justify-center md:items-center">
+          Explore
+        </span>
+      </div>
+    </section>
     <section>
       <div class="flex flex-col justify-center items-center">
         <div class="flex space-x-3 items-center">
@@ -39,7 +79,40 @@
       >
         <!-- card-contaier -->
       </div>
-      <div id="filtered-results-container" class="flex flex-col space-y-3 space-x-3 md:flex-row md:flex-wrap mt-5 justify-center items-center"></div>
+      <div
+        id="filtered-results-container"
+        class="flex flex-col space-y-3 space-x-3 md:flex-row md:flex-wrap mt-5 justify-center items-center"
+      ></div>
     </section>
+    
+
+<footer class="bg-white rounded-lg shadow dark:bg-gray-900 m-4">
+    <div class="w-full max-w-screen-xl mx-auto p-4 md:py-8">
+        <div class="sm:flex sm:items-center sm:justify-between">
+            <a href="" class="flex items-center mb-4 sm:mb-0 space-x-3 rtl:space-x-reverse">
+                <img src="./icons/logo-dog.png" class="h-8"  />
+                <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">The Dog App</span>
+            </a>
+            <ul class="flex flex-wrap items-center mb-6 text-sm font-medium text-gray-500 sm:mb-0 dark:text-gray-400">
+                <li>
+                    <a href="#" class="hover:underline me-4 md:me-6">About</a>
+                </li>
+                <li>
+                    <a href="#" class="hover:underline me-4 md:me-6">Privacy Policy</a>
+                </li>
+                <li>
+                    <a href="#" class="hover:underline me-4 md:me-6">Licensing</a>
+                </li>
+                <li>
+                    <a href="mailto:sarmaddevelops@gmail.com" class="hover:underline">Contact</a>
+                </li>
+            </ul>
+        </div>
+        <hr class="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
+        <span class="block text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2024 <a href="" class="hover:underline">Sarmad</a>. Open Source .</span>
+    </div>
+</footer>
+
+
   </body>
 </html>
