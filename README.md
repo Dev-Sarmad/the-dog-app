@@ -3,6 +3,14 @@
 
 Want to find the information about dogs ? Then you come to the right place.
 
+## Screenshots
+![Screenshot 2024-01-11 130207](https://github.com/Dev-Sarmad/the-dog-app/assets/111682412/8bf9d2a4-5074-449c-aa4c-45b0dbeeda74)
+
+![Screenshot 2024-01-11 130248](https://github.com/Dev-Sarmad/the-dog-app/assets/111682412/de9b8620-9f39-43d9-9eb2-625a3d5b09e6)
+
+![Screenshot 2024-01-11 130428](https://github.com/Dev-Sarmad/the-dog-app/assets/111682412/865cee62-b450-402c-b75e-c39d8eae9cc8)
+
+![Screenshot 2024-01-09 234540](https://github.com/Dev-Sarmad/the-dog-app/assets/111682412/239b6ee0-d38c-47b4-b39f-64eb2c124923)
 
 ## Run Locally
 
@@ -85,5 +93,3 @@ For support, email sarmaddevelops@gmail.com .
 #### What will I learn while building this project?
 
 ES6 javascript , async nature of javascript reponsive dsign. Fetching data from the external API.
-
-
