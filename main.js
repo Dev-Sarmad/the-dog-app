@@ -91,7 +91,7 @@ const diplayResults = (data) => {
     div.innerHTML = `<div
     class="h-[300px] mx-3 max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700"
   >
-    <a href="index-details.html?id=${data.breeds.map((dog) => dog.id)}">
+    <a href="details.html?id=${data.breeds.map((dog) => dog.id)}">
       <img class="rounded-t-lg h-[80%]" src=${data.url} alt="" md:h-72 md:w-80/>
     </a>
     <div class="p-5">
@@ -152,7 +152,7 @@ function start() {
       input.addEventListener("change", filterSearch);
       filterSearch();
       break;
-    case "/index-details.html":
+    case "/details.html":
       fetchDetails();
       break;
   }
